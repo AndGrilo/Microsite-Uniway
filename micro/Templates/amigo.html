@@ -1,0 +1,43 @@
+{% extends 'base.html' %} 
+{% block title %}
+Referir um Amigo/Familiar
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <img src="https://res.cloudinary.com/dmcagq19i/image/upload/v1632306735/Uniway/2_dutg85.png" style="width: 100%;">
+    <div class="container font-avenir">
+        <form method="POST" class="form-register" style="color:white">
+            {{ form.hidden_tag() }}
+            
+            <h3 class="labelAmigo2" style="margin-top:5%">
+                Indique-nos a pessoa interessada!
+            </h3>
+            <br>
+            <div class="text-left text-register marginStandartAmigo">
+                {{ form.nome.label(class="marginAmigo fontSizeAmigo") }}
+                {{ form.nome(class="form-control labelAmigo marginAmigo fontSizeAmigo", placeholder="Nome") }}
+                <div style="margin-top: 1%;">
+                {{ form.telemovel.label(class="marginAmigo fontSizeAmigo") }}
+                {{ form.telemovel(class="form-control labelAmigo marginAmigo fontSizeAmigo", placeholder="Telemóvel") }}
+                </div>
+                <div style="margin-top: 1%;">
+                {{ form.email.label(class="marginAmigo fontSizeAmigo") }}
+                {{ form.email(class="form-control labelAmigo marginAmigo fontSizeAmigo", placeholder="Email") }}
+                <p class="marginCPO" style="margin-top: 1%">*Campos de preenchimento obrigatório</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-11 text-right" style="margin-left: 10px;">
+                    {{ form.submit(class="btn-primary btn btn-lg btn-back fontSizeAmigo")}}
+                </div>
+            </div>
+            </div>
+            
+            <br>
+            <br>
+        </form>
+    </div>
+</body>
+{% endblock %}

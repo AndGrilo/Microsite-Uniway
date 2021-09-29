@@ -1,0 +1,112 @@
+{% extends 'base.html' %} 
+{% block title %}
+Formulário
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <img src="https://res.cloudinary.com/dmcagq19i/image/upload/v1632306735/Uniway/2_dutg85.png" style="width: 100%;">
+    <div class="container">
+        <form method="POST" class="form-register" style="color:white">
+            {{ form.hidden_tag() }}
+            
+            <div class="font-avenir text-center">
+                <div class="labelQualidade" style="margin-top: 5%;">
+                    Ajude-nos a atendê-lo com mais qualidade. Atualize as suas informações.
+                </div>
+                
+            </div>
+            <br>
+            
+            <div class="text-center" style="margin-left: 9%;">
+                <div class="text-left text-register">
+                    {{ form.nome.label(class="font-avenir label") }}
+                    {{ form.nome(class="form-control PaddingBig", placeholder="Nome") }}
+        
+                    </div>
+                    <div class="row text-left " style="margin-top: 1%;">
+                        <div class="col-md-5 text-register">
+                            {{ form.data_de_nascimento.label(class="font-avenir label1") }}
+                            {{ form.data_de_nascimento(class="form-control PaddingSmall labelSmall1", placeholder="Data de Nascimento") }}
+                        </div>
+                        
+                        <div class="col-md-5 text-register GridWidth2">
+                            {{ form.nif.label(class="font-avenir label1 labelSmall") }}
+                            {{ form.nif(class="form-control PaddingSmall labelSmall", placeholder="NIF") }}
+                        </div>
+                          
+                    </div>
+        
+                    <div class="text-left text-register"style="margin-top: 1%;">
+                        {{ form.morada.label(class="font-avenir label") }}
+                        {{ form.morada(class="form-control PaddingBig", placeholder="Morada") }}  
+                    </div>
+                    
+                    <div class="row text-left" style="margin-top: 1%;">
+                        <div class="col-md-5 text-register">
+                            {{ form.codigo_postal.label(class="font-avenir label1") }}
+                            {{ form.codigo_postal(class="form-control PaddingSmall labelSmall1", placeholder="Código Postal") }}
+                        </div>
+                        <div class="col-md-5 text-left text-register GridWidth2">
+                            {{ form.localidade.label(class="font-avenir label1 labelSmall") }}
+                            {{ form.localidade(class="form-control PaddingSmall labelSmall", placeholder="Localidade") }}
+                        </div>
+                    </div>
+                    <div class="text-left text-register" style="margin-top: 1%;">
+                        {{ form.email.label(class="font-avenir label") }}
+                        {{ form.email(class="form-control PaddingBig", placeholder="Email") }}
+            
+                    </div>
+            </div>
+            
+            
+            
+            
+           
+            
+            <div class="text-left labelCO">
+                *Campos de preenchimento obrigatório              
+            
+        
+            
+        <p></p>
+            <div style="font-size: 83%; margin-right: 7%;">
+                <input style="margin-top: 0%;" type="checkbox" value="other" id="checkme">
+                Declaro que li e compreendi as <a href="https://res.cloudinary.com/dmcagq19i/raw/upload/v1629278863/Uniway/Ficheiros%20escritos/1.SISTEMA_E_POLI%CC%81TICA_DE_TRATAMENTO_DOS_CLIENTES_E_DE_GESTA%CC%83O_DAS_RECLAMAC%CC%A7O%CC%83ES_nfjqzs.docx" style="color: white;"><b>Informações sobre o Tratamento de Dados Pessoais</b></a>.<br>
+                <input style="margin-top: 0%;" type="checkbox" value="1" name="mycheckbox">
+                Autorizo o tratamento dos meus dados pessoais pela Uniway Seguros, neste âmbito e em futuras ações de comunicação e marketing relevante para mim.
+              </div>
+
+
+
+            <br>
+            <div class="row">
+                <div class="GridWidthBtn" style="margin-top: 1.5%;">
+                    {{ form.submit(class="btn-primary btn btn-lg btn-back btn-grid", disabled="disabled", id="sendNewSms") }}
+                </div>
+            </div>
+        </div>
+            
+
+        
+
+        <script>
+  
+            var checker = document.getElementById('checkme');
+            var sendbtn = document.getElementById('sendNewSms');
+              
+            checker.onchange = function() {
+              sendbtn.disabled = !!this.checked ? false : true;
+            };
+        </script>
+
+
+
+  </div>
+            <br>
+            <br>
+            <br>
+        </form>
+    </div>
+</body>
+{% endblock %}

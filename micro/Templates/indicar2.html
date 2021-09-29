@@ -1,0 +1,35 @@
+{% extends 'base.html' %} 
+{% block title %}
+Indica um amigo/familiar!
+{% endblock %}
+
+{% block content %}
+
+<body class="text-center">
+    <img src="https://res.cloudinary.com/dmcagq19i/image/upload/v1632306735/Uniway/2_dutg85.png" style="width: 100%;">
+    <div class="container">
+        <form method="POST" class="form-register" style="color:white">
+            <h1 class="DesejaIndica" style="margin-top: 5%;">
+                Deseja indicar mais algum amigo/familiar?
+            </h1>
+            <br>
+            <br>
+            <div class="row marginIndica">
+                <div style="padding-left: 150px;">
+                    {{ form.sim(class="btn btn-lg btn-block btn-primary BtnIndica") }}
+                </div>
+                <div style="margin-left: 5%;">
+                    {{ form.nao(class="btn btn-lg btn-block btn-primary BtnIndica") }}
+                </div>
+
+            </div>
+            <br>
+            <br>
+            <br>
+            
+        </form>
+    </div>
+</body>
+
+
+{% endblock %}
