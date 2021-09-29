@@ -3,6 +3,7 @@ from micro import app, db
 from flask import render_template, redirect, url_for, flash, request
 from micro.forms import RegisterForm, IndicaForm, NaoIndicaForm, AmigoForm
 from micro.models import User, Amigo
+import datetime, time
 
 @app.route('/')
 def nothing():
@@ -16,7 +17,10 @@ def register_page():
             Marketing = "Nao"
             if Markt == "1":
                 Marketing = "Sim"
-        user_to_create = User(nome=form.nome.data, data_de_nascimento=form.data_de_nascimento.data, nif=form.nif.data, morada=form.morada.data, codigo_postal=form.codigo_postal.data, localidade=form.localidade.data, email=form.email.data, marketing = Marketing)
+            date_of_today = datetime.date.today()
+            time_of_today = time.strftime("%H:%M:%S")
+            both_of_today = (time_of_today + " " + str(date_of_today))
+        user_to_create = User(nome=form.nome.data, data_de_nascimento=form.data_de_nascimento.data, nif=form.nif.data, morada=form.morada.data, codigo_postal=form.codigo_postal.data, localidade=form.localidade.data, email=form.email.data, marketing = Marketing, tempo=both_of_today)
         db.session.add(user_to_create)
         db.session.commit()
         flash('Formulário preenchido com sucesso!', category='success')
@@ -52,7 +56,10 @@ def indica_page_2():
 def amigo_page():
     form = AmigoForm()
     if form.validate_on_submit():
-        amigo = Amigo(nome=form.nome.data, telemovel=form.telemovel.data, email=form.email.data)
+        date_of_today1 = datetime.date.today()
+        time_of_today1 = time.strftime("%H:%M:%S")
+        both_of_today1 = (time_of_today1 + " " + str(date_of_today1))
+        amigo = Amigo(nome=form.nome.data, telemovel=form.telemovel.data, email=form.email.data, tempo=both_of_today1)
         db.session.add(amigo)
         db.session.commit()
         flash('Formulário preenchido com sucesso!', category='success')
